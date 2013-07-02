@@ -13,8 +13,6 @@ import java.util.zip.ZipFile;
 
 public class Extractor {
 
-	public static final String URL = "https://jrat.pro/downloads/jRAT.zip";
-
 	public static void extract(File outputDir, Frame frame) {
 		try {
 			if (!outputDir.exists()) {
@@ -27,7 +25,7 @@ public class Extractor {
 
 			frame.log("Connecting...");
 
-			HttpURLConnection urlConnection = (HttpURLConnection) new URL(URL).openConnection();
+			HttpURLConnection urlConnection = (HttpURLConnection) new URL(Main.HOST + "downloads/jRAT.zip").openConnection();
 			urlConnection.connect();
 
 			InputStream is = urlConnection.getInputStream();
@@ -98,7 +96,7 @@ public class Extractor {
 			
 			frame.log("Successfully installed jRAT");
 			
-			Frame.path = outputDir;
+			frame.path = outputDir;
 			
 			frame.getButton().setText("Launch jRAT");
 			

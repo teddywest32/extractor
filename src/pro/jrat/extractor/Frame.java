@@ -1,15 +1,19 @@
 package pro.jrat.extractor;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.net.URI;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -31,7 +35,7 @@ public class Frame extends JFrame {
 	
 	public static Image background;
 
-	public static File path;
+	public File path;
 	
 	private JPanel contentPane;
 	private JProgressBar progressBar;
@@ -138,6 +142,21 @@ public class Frame extends JFrame {
 		lblJrat.setBounds(44, 11, 203, 24);
 		contentPane.add(lblJrat);
 		
+		JLabel lblUrl = new JLabel(Main.HOST);
+		lblUrl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Desktop.getDesktop().browse(new URI(Main.HOST));
+				} catch (Exception e) {	
+					e.printStackTrace();
+				}
+			}
+		});
+		lblUrl.setForeground(Color.BLUE);
+		lblUrl.setBounds(174, 11, 136, 24);
+		contentPane.add(lblUrl);
+		
 		setLocationRelativeTo(null);
 		
 		loadEula();
@@ -146,7 +165,7 @@ public class Frame extends JFrame {
 	private void loadEula() {
 		try {
 			System.out.println("Downloading EULA");
-			BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://jrat.pro/misc/eula.txt").openStream()));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(Main.HOST + "misc/eula.txt").openStream()));
 			
 			String line;
 			
