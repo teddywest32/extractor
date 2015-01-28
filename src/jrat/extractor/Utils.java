@@ -1,4 +1,4 @@
-package su.jrat.extractor;
+package jrat.extractor;
 
 public class Utils {
 

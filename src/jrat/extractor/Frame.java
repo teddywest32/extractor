@@ -1,4 +1,4 @@
-package su.jrat.extractor;
+package jrat.extractor;
 
 import java.awt.Color;
 import java.awt.Desktop;

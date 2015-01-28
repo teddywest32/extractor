@@ -1,4 +1,4 @@
-package su.jrat.extractor;
+package jrat.extractor;
 
 import javax.swing.UIManager;
 

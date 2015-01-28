@@ -1,4 +1,4 @@
-package su.jrat.extractor;
+package jrat.extractor;
 
 import java.io.File;
 import java.io.FileOutputStream;
