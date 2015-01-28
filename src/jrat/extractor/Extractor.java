@@ -25,7 +25,7 @@ public class Extractor {
 
 			frame.log("Connecting...");
 
-			HttpURLConnection urlConnection = (HttpURLConnection) new URL(Main.HOST + "downloads/jRAT.zip").openConnection();
+			HttpURLConnection urlConnection = (HttpURLConnection) new URL(Main.HOST + "downloads/jrat-archive.zip").openConnection();
 			urlConnection.connect();
 
 			InputStream is = urlConnection.getInputStream();
